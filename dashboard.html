@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Watchlist Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { width: 80%; margin: auto; }
+        h1 { text-align: center; }
+        canvas { margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Netflix Watchlist Dashboard</h1>
+        <div>
+            <h2>Movies vs TV Shows</h2>
+            <canvas id="moviesVsShowsChart"></canvas>
+        </div>
+        <div>
+            <h2>Watch Time by Genre</h2>
+            <canvas id="genreWatchTimeChart"></canvas>
+        </div>
+        <div>
+            <h2>Ratings Distribution</h2>
+            <canvas id="ratingsDistributionChart"></canvas>
+        </div>
+        <div>
+            <h2>Timeline</h2>
+            <canvas id="timelineChart"></canvas>
+        </div>
+        <div>
+            <h2>Top Genres</h2>
+            <canvas id="topGenresChart"></canvas>
+        </div>
+        <div>
+            <h2>Statistics</h2>
+            <p id="statistics"></p>
+        </div>
+        <input type="text" id="search" placeholder="Search...">
+        <button onclick="filterData()">Filter</button>
+    </div>
+
+    <script>
+        // Sample data
+        const moviesCount = 50;
+        const tvShowsCount = 30;
+        const genreWatchTime = {
+            "Action": 40,
+            "Drama": 60,
+            "Comedy": 30,
+            "Horror": 20
+        };
+        const ratings = [3, 5, 4, 2, 4, 5, 3];
+        const timelineData = ["2022-01", "2022-02", "2022-03", "2022-04"];
+        const topGenres = ["Drama", "Action", "Comedy"];
+
+        // Visualizations Functions
+        function createMoviesVsShowsChart() {
+            const ctx = document.getElementById('moviesVsShowsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Movies', 'TV Shows'],
+                    datasets: [{
+                        label: 'Count',
+                        data: [moviesCount, tvShowsCount],
+                        backgroundColor: ['#8E44AD', '#3498DB'],
+                    }]
+                }
+            });
+        }
+
+        function createGenreWatchTimeChart() {
+            const ctx = document.getElementById('genreWatchTimeChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(genreWatchTime),
+                    datasets: [{
+                        label: 'Watch Time by Genre',
+                        data: Object.values(genreWatchTime),
+                        backgroundColor: ['#E74C3C', '#F39C12', '#1ABC9C', '#2980B9'],
+                    }]
+                }
+            });
+        }
+
+        function createRatingsDistributionChart() {
+            const ctx = document.getElementById('ratingsDistributionChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ratings.map((_, i) => `Rating ${i + 1}`),
+                    datasets: [{
+                        label: 'Ratings Distribution',
+                        data: ratings,
+                        borderColor: '#2ECC71',
+                        fill: false
+                    }]
+                }
+            });
+        }
+
+        function createTimelineChart() {
+            const ctx = document.getElementById('timelineChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: timelineData,
+                    datasets: [{
+                        label: 'Watchlist Added',
+                        data: [5, 10, 8, 12],
+                        backgroundColor: '#3498DB',
+                    }]
+                }
+            });
+        }
+
+        function createTopGenresChart() {
+            const ctx = document.getElementById('topGenresChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'horizontalBar',
+                data: {
+                    labels: topGenres,
+                    datasets: [{
+                        label: 'Top Genres',
+                        data: [15, 10, 8],
+                        backgroundColor: '#E74C3C',
+                    }]
+                }
+            });
+        }
+
+        function displayStatistics() {
+            document.getElementById('statistics').innerText = `Total Movies: ${moviesCount}, Total TV Shows: ${tvShowsCount}`;
+        }
+
+        function filterData() {
+            const query = document.getElementById('search').value.toLowerCase();
+            // Filtering logic would go here
+            alert('Filtering data for: ' + query);
+        }
+
+        // Initialize charts on load
+        createMoviesVsShowsChart();
+        createGenreWatchTimeChart();
+        createRatingsDistributionChart();
+        createTimelineChart();
+        createTopGenresChart();
+        displayStatistics();
+    </script>
+</body>
+</html>
