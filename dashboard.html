@@ -1,72 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js"></script>
+    <title>Netflix Dashboard</title>
 </head>
 <body>
-    <header>
-        <h1>Dashboard</h1>
-    </header>
-    <main>
-        <section id="filters">
-            <h2>Advanced Filters</h2>
-            <label for="rating-range">Rating Range:</label>
-            <input type="range" id="rating-range" min="0" max="5" step="0.1">
-            <label for="date-range">Date Range:</label>
-            <input type="date" id="start-date">
-            <input type="date" id="end-date">
-            <label for="duration">Duration:</label>
-            <input type="number" id="duration" min="0" placeholder="Minutes">
-        </section>
-
-        <section id="hidden-gems">
-            <h2>Hidden Gems Finder</h2>
-            <div id="hidden-gems-results"></div>
-        </section>
-
-        <section id="watch-time-trends">
-            <h2>Watch Time Trends</h2>
-            <canvas id="watchTimeChart"></canvas>
-        </section>
-
-        <section id="performance-metrics">
-            <h2>Performance Metrics</h2>
-            <table id="performance-table">
-                <thead>
-                    <tr><th>Metric</th><th>Value</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Views</td><td id="views">0</td></tr>
-                    <tr><td>Likes</td><td id="likes">0</td></tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section id="data-table">
-            <h2>Interactive Data Table</h2>
-            <table id="data-table">
-                <thead>
-                    <tr><th onclick="sortTable(0)">Title</th><th onclick="sortTable(1)">Duration</th></tr>
-                </thead>
-                <tbody id="table-body">
-                    <!-- Dynamic content -->
-                </tbody>
-            </table>
-        </section>
-
-        <section id="comparison-stats">
-            <h2>Comparison Stats</h2>
-            <div id="comparison-results"></div>
-        </section>
-
-        <button id="export-data">Export Data</button>
-    </main>
-    <footer>
-        <p>&copy; 2026 Tonynkuna15-ops. All rights reserved.</p>
-    </footer>
+    <h1>Welcome to the Netflix Dashboard</h1>
+    <p>Your go-to place for all things Netflix!</p>
+    <section>
+        <h2>Current Shows</h2>
+        <ul>
+            <li>Show 1</li>
+            <li>Show 2</li>
+            <li>Show 3</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Recommendations</h2>
+        <p>Based on your viewing history, we recommend:</p>
+        <ul>
+            <li>Recommendation 1</li>
+            <li>Recommendation 2</li>
+            <li>Recommendation 3</li>
+        </ul>
+    </section>
 </body>
 </html>
